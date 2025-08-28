@@ -1,0 +1,234 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="1200" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="800" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50">MVP Clean Architecture - 时序图 (Timing Diagram)</text>
+  <text x="800" y="65" text-anchor="middle" font-family="Arial" font-size="14" fill="#7f8c8d">展示用户操作从UI到数据层的完整时序流程</text>
+  
+  <!-- Arrow Definitions -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+  
+  <!-- Participants -->
+  <g id="participants">
+    <!-- User -->
+    <rect x="50" y="100" width="120" height="60" fill="#ecf0f1" stroke="#95a5a6" stroke-width="2" rx="5"/>
+    <text x="110" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">User</text>
+    <text x="110" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#7f8c8d">用户</text>
+    
+    <!-- View -->
+    <rect x="220" y="100" width="120" height="60" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="5"/>
+    <text x="280" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#1976d2">View</text>
+    <text x="280" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#1976d2">Activity/Fragment</text>
+    
+    <!-- Presenter -->
+    <rect x="390" y="100" width="120" height="60" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="5"/>
+    <text x="450" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#7b1fa2">Presenter</text>
+    <text x="450" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b1fa2">业务协调器</text>
+    
+    <!-- Interactor -->
+    <rect x="560" y="100" width="120" height="60" fill="#fce4ec" stroke="#c2185b" stroke-width="2" rx="5"/>
+    <text x="620" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#c2185b">Interactor</text>
+    <text x="620" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#c2185b">用例执行器</text>
+    
+    <!-- Repository -->
+    <rect x="730" y="100" width="120" height="60" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="5"/>
+    <text x="790" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#388e3c">Repository</text>
+    <text x="790" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#388e3c">数据仓库</text>
+    
+    <!-- DataSource -->
+    <rect x="900" y="100" width="120" height="60" fill="#fff8e1" stroke="#ffa000" stroke-width="2" rx="5"/>
+    <text x="960" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#ffa000">DataSource</text>
+    <text x="960" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffa000">数据源</text>
+    
+    <!-- Executor -->
+    <rect x="1070" y="100" width="120" height="60" fill="#ffebee" stroke="#d32f2f" stroke-width="2" rx="5"/>
+    <text x="1130" y="125" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#d32f2f">Executor</text>
+    <text x="1130" y="145" text-anchor="middle" font-family="Arial" font-size="12" fill="#d32f2f">线程执行器</text>
+  </g>
+  
+  <!-- Lifelines -->
+  <g id="lifelines">
+    <line x1="110" y1="160" x2="110" y2="1100" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="280" y1="160" x2="280" y2="1100" stroke="#1976d2" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="450" y1="160" x2="450" y2="1100" stroke="#7b1fa2" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="620" y1="160" x2="620" y2="1100" stroke="#c2185b" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="790" y1="160" x2="790" y2="1100" stroke="#388e3c" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="960" y1="160" x2="960" y2="1100" stroke="#ffa000" stroke-width="2" stroke-dasharray="5,5"/>
+    <line x1="1130" y1="160" x2="1130" y2="1100" stroke="#d32f2f" stroke-width="2" stroke-dasharray="5,5"/>
+  </g>
+  
+  <!-- Time Sequence -->
+  <g id="sequence">
+    <!-- Step 1: User clicks button -->
+    <text x="30" y="200" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">1.</text>
+    <line x1="110" y1="210" x2="280" y2="210" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="195" y="205" text-anchor="middle" font-family="Arial" font-size="11" fill="#3498db">onClick()</text>
+    <rect x="270" y="215" width="20" height="40" fill="#1976d2" opacity="0.3"/>
+    
+    <!-- Step 2: View calls Presenter -->
+    <text x="30" y="270" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">2.</text>
+    <line x1="280" y1="280" x2="450" y2="280" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="365" y="275" text-anchor="middle" font-family="Arial" font-size="11" fill="#3498db">loadData()</text>
+    <rect x="440" y="285" width="20" height="60" fill="#7b1fa2" opacity="0.3"/>
+    
+    <!-- Step 3: Presenter shows loading -->
+    <text x="30" y="320" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">3.</text>
+    <line x1="450" y1="330" x2="280" y2="330" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="365" y="325" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">showLoading()</text>
+    
+    <!-- Step 4: Presenter calls Interactor -->
+    <text x="30" y="370" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">4.</text>
+    <line x1="450" y1="380" x2="620" y2="380" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="535" y="375" text-anchor="middle" font-family="Arial" font-size="11" fill="#3498db">execute()</text>
+    <rect x="610" y="385" width="20" height="120" fill="#c2185b" opacity="0.3"/>
+    
+    <!-- Step 5: Interactor calls Repository -->
+    <text x="30" y="420" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">5.</text>
+    <line x1="620" y1="430" x2="790" y2="430" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="705" y="425" text-anchor="middle" font-family="Arial" font-size="11" fill="#3498db">getData()</text>
+    <rect x="780" y="435" width="20" height="100" fill="#388e3c" opacity="0.3"/>
+    
+    <!-- Step 6: Repository calls DataSource -->
+    <text x="30" y="470" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">6.</text>
+    <line x1="790" y1="480" x2="960" y2="480" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="875" y="475" text-anchor="middle" font-family="Arial" font-size="11" fill="#3498db">fetchData()</text>
+    <rect x="950" y="485" width="20" height="80" fill="#ffa000" opacity="0.3"/>
+    
+    <!-- Step 7: DataSource uses Executor for background work -->
+    <text x="30" y="520" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">7.</text>
+    <line x1="960" y1="530" x2="1130" y2="530" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1045" y="525" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">executeInBackground()</text>
+    <rect x="1120" y="535" width="20" height="60" fill="#d32f2f" opacity="0.3"/>
+    
+    <!-- Step 8: Executor returns to DataSource -->
+    <text x="30" y="570" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">8.</text>
+    <line x1="1130" y1="580" x2="960" y2="580" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="1045" y="575" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">onComplete()</text>
+    
+    <!-- Step 9: DataSource returns data to Repository -->
+    <text x="30" y="620" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">9.</text>
+    <line x1="960" y1="630" x2="790" y2="630" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="875" y="625" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">return data</text>
+    
+    <!-- Step 10: Repository returns to Interactor -->
+    <text x="30" y="670" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">10.</text>
+    <line x1="790" y1="680" x2="620" y2="680" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="705" y="675" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">onSuccess(data)</text>
+    
+    <!-- Step 11: Interactor calls Presenter callback -->
+    <text x="30" y="720" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">11.</text>
+    <line x1="620" y1="730" x2="450" y2="730" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="535" y="725" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">onNext(data)</text>
+    
+    <!-- Step 12: Presenter hides loading -->
+    <text x="30" y="770" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">12.</text>
+    <line x1="450" y1="780" x2="280" y2="780" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="365" y="775" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">hideLoading()</text>
+    
+    <!-- Step 13: Presenter shows data -->
+    <text x="30" y="820" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">13.</text>
+    <line x1="450" y1="830" x2="280" y2="830" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="365" y="825" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">showData(data)</text>
+    
+    <!-- Step 14: View updates UI -->
+    <text x="30" y="870" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">14.</text>
+    <line x1="280" y1="880" x2="110" y2="880" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="195" y="875" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">updateUI()</text>
+  </g>
+  
+  <!-- Error Handling Sequence -->
+  <g id="error-sequence">
+    <text x="1250" y="200" font-family="Arial" font-size="16" font-weight="bold" fill="#e74c3c">错误处理流程</text>
+    
+    <!-- Error Step 1 -->
+    <text x="1250" y="230" font-family="Arial" font-size="12" fill="#2c3e50">1. DataSource 发生错误</text>
+    <line x1="1250" y1="240" x2="1450" y2="240" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1350" y="235" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">onError()</text>
+    
+    <!-- Error Step 2 -->
+    <text x="1250" y="270" font-family="Arial" font-size="12" fill="#2c3e50">2. Repository 传递错误</text>
+    <line x1="1450" y1="280" x2="1250" y2="280" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1350" y="275" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">onError()</text>
+    
+    <!-- Error Step 3 -->
+    <text x="1250" y="310" font-family="Arial" font-size="12" fill="#2c3e50">3. Interactor 处理错误</text>
+    <line x1="1250" y1="320" x2="1450" y2="320" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1350" y="315" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">onError()</text>
+    
+    <!-- Error Step 4 -->
+    <text x="1250" y="350" font-family="Arial" font-size="12" fill="#2c3e50">4. Presenter 显示错误</text>
+    <line x1="1450" y1="360" x2="1250" y2="360" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="1350" y="355" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">showError()</text>
+  </g>
+  
+  <!-- Threading Information -->
+  <g id="threading-info">
+    <rect x="1250" y="420" width="300" height="200" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="1400" y="445" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">线程管理</text>
+    
+    <text x="1270" y="470" font-family="Arial" font-size="12" font-weight="bold" fill="#e74c3c">后台线程 (Background Thread):</text>
+    <text x="1270" y="490" font-family="Arial" font-size="11" fill="#2c3e50">• DataSource 数据获取</text>
+    <text x="1270" y="505" font-family="Arial" font-size="11" fill="#2c3e50">• Repository 数据处理</text>
+    <text x="1270" y="520" font-family="Arial" font-size="11" fill="#2c3e50">• Interactor 业务逻辑</text>
+    
+    <text x="1270" y="545" font-family="Arial" font-size="12" font-weight="bold" fill="#27ae60">主线程 (Main Thread):</text>
+    <text x="1270" y="565" font-family="Arial" font-size="11" fill="#2c3e50">• View UI 更新</text>
+    <text x="1270" y="580" font-family="Arial" font-size="11" fill="#2c3e50">• Presenter 回调处理</text>
+    <text x="1270" y="595" font-family="Arial" font-size="11" fill="#2c3e50">• 用户交互响应</text>
+  </g>
+  
+  <!-- Performance Notes -->
+  <g id="performance-notes">
+    <rect x="1250" y="650" width="300" height="180" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="1400" y="675" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">性能优化要点</text>
+    
+    <text x="1270" y="700" font-family="Arial" font-size="12" font-weight="bold" fill="#f39c12">缓存策略:</text>
+    <text x="1270" y="720" font-family="Arial" font-size="11" fill="#2c3e50">• Repository 层实现缓存</text>
+    <text x="1270" y="735" font-family="Arial" font-size="11" fill="#2c3e50">• 减少网络请求频率</text>
+    
+    <text x="1270" y="760" font-family="Arial" font-size="12" font-weight="bold" fill="#9b59b6">异步处理:</text>
+    <text x="1270" y="780" font-family="Arial" font-size="11" fill="#2c3e50">• 使用 RxJava/Coroutines</text>
+    <text x="1270" y="795" font-family="Arial" font-size="11" fill="#2c3e50">• 避免阻塞主线程</text>
+    
+    <text x="1270" y="815" font-family="Arial" font-size="11" fill="#2c3e50">• 合理的超时设置</text>
+  </g>
+  
+  <!-- Legend -->
+  <g id="legend">
+    <rect x="50" y="950" width="500" height="120" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="300" y="975" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">图例说明</text>
+    
+    <line x1="70" y1="990" x2="120" y2="990" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="130" y="995" font-family="Arial" font-size="11" fill="#2c3e50">方法调用</text>
+    
+    <line x1="70" y1="1010" x2="120" y2="1010" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+    <text x="130" y="1015" font-family="Arial" font-size="11" fill="#2c3e50">返回结果</text>
+    
+    <line x1="70" y1="1030" x2="120" y2="1030" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="130" y="1035" font-family="Arial" font-size="11" fill="#2c3e50">错误处理</text>
+    
+    <rect x="250" y="985" width="20" height="15" fill="#3498db" opacity="0.3"/>
+    <text x="280" y="995" font-family="Arial" font-size="11" fill="#2c3e50">激活状态</text>
+    
+    <line x1="250" y1="1010" x2="270" y2="1010" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5"/>
+    <text x="280" y="1015" font-family="Arial" font-size="11" fill="#2c3e50">生命线</text>
+  </g>
+  
+  <!-- Time Indicators -->
+  <g id="time-indicators">
+    <text x="1400" y="900" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">时间流向</text>
+    <line x1="1400" y1="910" x2="1400" y2="950" stroke="#2c3e50" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="1410" y="930" font-family="Arial" font-size="11" fill="#2c3e50">从上到下</text>
+  </g>
+</svg>

@@ -1,0 +1,291 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50">MVP Clean Architecture - 依赖关系图</text>
+
+  <!-- Dependency Direction Legend -->
+  <g id="legend">
+    <rect x="50" y="60" width="300" height="80" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="5"/>
+    <text x="200" y="80" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#2c3e50">依赖方向说明</text>
+    <line x1="70" y1="95" x2="120" y2="95" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+    <text x="130" y="100" font-family="Arial" font-size="10" fill="#2c3e50">具体依赖</text>
+    <line x1="70" y1="110" x2="120" y2="110" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+    <text x="130" y="115" font-family="Arial" font-size="10" fill="#2c3e50">接口依赖</text>
+    <line x1="70" y1="125" x2="120" y2="125" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-green)"/>
+    <text x="130" y="130" font-family="Arial" font-size="10" fill="#2c3e50">注入依赖</text>
+  </g>
+
+  <!-- Arrows Definition -->
+  <defs>
+    <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3498db"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- UI Layer -->
+  <g id="ui-layer">
+    <rect x="50" y="180" width="600" height="200" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10"/>
+    <text x="350" y="205" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#1976d2">UI Layer (Presentation)</text>
+
+    <!-- Activity -->
+    <rect x="80" y="230" width="120" height="80" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="140" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1976d2">Activity</text>
+    <text x="140" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">MainActivity</text>
+    <text x="140" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">implements</text>
+    <text x="140" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">MainView</text>
+
+    <!-- Fragment -->
+    <rect x="220" y="230" width="120" height="80" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="280" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1976d2">Fragment</text>
+    <text x="280" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">ListFragment</text>
+    <text x="280" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">implements</text>
+    <text x="280" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">ListView</text>
+
+    <!-- Presenter -->
+    <rect x="360" y="230" width="120" height="80" fill="#90caf9" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="420" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1976d2">Presenter</text>
+    <text x="420" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">MainPresenter</text>
+    <text x="420" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">业务协调</text>
+    <text x="420" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">View控制</text>
+
+    <!-- View Interface -->
+    <rect x="500" y="230" width="120" height="80" fill="#64b5f6" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="560" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#1976d2">View Interface</text>
+    <text x="560" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">MainView</text>
+    <text x="560" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">ListView</text>
+    <text x="560" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">抽象接口</text>
+
+    <!-- View Methods -->
+    <rect x="80" y="330" width="540" height="30" fill="#e1f5fe" stroke="#1976d2" stroke-width="1" rx="3"/>
+    <text x="350" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">View Methods: showLoading(), hideLoading(), showData(), showError(), showEmpty()</text>
+  </g>
+
+  <!-- Domain Layer -->
+  <g id="domain-layer">
+    <rect x="750" y="180" width="600" height="200" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="10"/>
+    <text x="1050" y="205" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#7b1fa2">Domain Layer (Business Logic)</text>
+
+    <!-- Interactor -->
+    <rect x="780" y="230" width="120" height="80" fill="#ce93d8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="840" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#7b1fa2">Interactor</text>
+    <text x="840" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">GetDataUseCase</text>
+    <text x="840" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">业务用例</text>
+    <text x="840" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">业务规则</text>
+
+    <!-- Model -->
+    <rect x="920" y="230" width="120" height="80" fill="#ce93d8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="980" y="250" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#7b1fa2">Model</text>
+    <text x="980" y="265" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">DataModel</text>
+    <text x="980" y="280" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">业务实体</text>
+    <text x="980" y="295" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">数据结构</text>
+
+    <!-- Repository Interface -->
+    <rect x="1060" y="230" width="120" height="80" fill="#ba68c8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="1120" y="245" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#7b1fa2">Repository</text>
+    <text x="1120" y="260" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#7b1fa2">Interface</text>
+    <text x="1120" y="275" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">DataRepository</text>
+    <text x="1120" y="290" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">数据抽象</text>
+    <text x="1120" y="305" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">接口定义</text>
+
+    <!-- Callback Interface -->
+    <rect x="1200" y="230" width="120" height="80" fill="#ab47bc" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="1260" y="245" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#7b1fa2">Callback</text>
+    <text x="1260" y="260" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#7b1fa2">Interface</text>
+    <text x="1260" y="275" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">UseCaseCallback</text>
+    <text x="1260" y="290" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">异步回调</text>
+    <text x="1260" y="305" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">结果通知</text>
+
+    <!-- Domain Methods -->
+    <rect x="780" y="330" width="540" height="30" fill="#fce4ec" stroke="#7b1fa2" stroke-width="1" rx="3"/>
+    <text x="1050" y="350" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">Domain Methods: execute(), buildUseCaseObservable(), onNext(), onError(), unsubscribe()</text>
+  </g>
+
+  <!-- Data Layer -->
+  <g id="data-layer">
+    <rect x="50" y="450" width="600" height="200" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="10"/>
+    <text x="350" y="475" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#388e3c">Data Layer</text>
+
+    <!-- Repository Implementation -->
+    <rect x="80" y="500" width="120" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="140" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">Repository</text>
+    <text x="140" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">Implementation</text>
+    <text x="140" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">DataRepositoryImpl</text>
+    <text x="140" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">数据协调</text>
+    <text x="140" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">缓存策略</text>
+
+    <!-- Local DataSource -->
+    <rect x="220" y="500" width="120" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="280" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">Local</text>
+    <text x="280" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">DataSource</text>
+    <text x="280" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">SQLite</text>
+    <text x="280" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">SharedPrefs</text>
+    <text x="280" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">文件存储</text>
+
+    <!-- Remote DataSource -->
+    <rect x="360" y="500" width="120" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="420" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">Remote</text>
+    <text x="420" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">DataSource</text>
+    <text x="420" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">REST API</text>
+    <text x="420" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">HTTP Client</text>
+    <text x="420" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">JSON解析</text>
+
+    <!-- DataSource Interface -->
+    <rect x="500" y="500" width="120" height="80" fill="#a5d6a7" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="560" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">DataSource</text>
+    <text x="560" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#388e3c">Interface</text>
+    <text x="560" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">数据源抽象</text>
+    <text x="560" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">统一接口</text>
+    <text x="560" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">可替换性</text>
+
+    <!-- Data Methods -->
+    <rect x="80" y="600" width="540" height="30" fill="#f1f8e9" stroke="#388e3c" stroke-width="1" rx="3"/>
+    <text x="350" y="620" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">Data Methods: getData(), saveData(), clearCache(), isDataFresh(), fetchFromNetwork()</text>
+  </g>
+
+  <!-- Executor Layer -->
+  <g id="executor-layer">
+    <rect x="750" y="450" width="600" height="200" fill="#fff8e1" stroke="#ffa000" stroke-width="2" rx="10"/>
+    <text x="1050" y="475" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#ffa000">Executor Layer (Threading)</text>
+
+    <!-- Thread Executor -->
+    <rect x="780" y="500" width="120" height="80" fill="#ffecb3" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="840" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">Thread</text>
+    <text x="840" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">Executor</text>
+    <text x="840" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">后台线程池</text>
+    <text x="840" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">异步执行</text>
+    <text x="840" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">IO操作</text>
+
+    <!-- Post Execution Thread -->
+    <rect x="920" y="500" width="120" height="80" fill="#ffecb3" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="980" y="510" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">PostExecution</text>
+    <text x="980" y="525" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">Thread</text>
+    <text x="980" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">主线程</text>
+    <text x="980" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">UI更新</text>
+    <text x="980" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">结果回调</text>
+
+    <!-- Executor Interface -->
+    <rect x="1060" y="500" width="120" height="80" fill="#ffe0b2" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="1120" y="515" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">Executor</text>
+    <text x="1120" y="530" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#ffa000">Interface</text>
+    <text x="1120" y="545" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">线程抽象</text>
+    <text x="1120" y="560" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">可测试性</text>
+    <text x="1120" y="575" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">可替换性</text>
+
+    <!-- Scheduler -->
+    <rect x="1200" y="500" width="120" height="80" fill="#ffcc02" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="1260" y="520" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="#ffa000">Scheduler</text>
+    <text x="1260" y="540" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">RxJava调度器</text>
+    <text x="1260" y="555" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">线程切换</text>
+    <text x="1260" y="570" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">异步处理</text>
+
+    <!-- Executor Methods -->
+    <rect x="780" y="600" width="540" height="30" fill="#fffde7" stroke="#ffa000" stroke-width="1" rx="3"/>
+    <text x="1050" y="620" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">Executor Methods: execute(), post(), subscribeOn(), observeOn(), unsubscribeOn()</text>
+  </g>
+
+  <!-- Dependency Arrows -->
+
+  <!-- UI Layer Dependencies -->
+  <!-- Activity/Fragment implements View Interface -->
+  <line x1="200" y1="270" x2="500" y2="270" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="350" y="265" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">implements</text>
+
+  <!-- Presenter depends on View Interface -->
+  <line x1="480" y1="270" x2="500" y2="270" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="490" y="265" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">uses</text>
+
+  <!-- Presenter depends on Interactor -->
+  <line x1="540" y1="270" x2="780" y2="270" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="660" y="265" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">uses</text>
+
+  <!-- Presenter depends on Callback Interface -->
+  <path d="M 540 250 Q 870 200 1200 250" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" fill="none"/>
+  <text x="870" y="220" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">implements callback</text>
+
+  <!-- Domain Layer Dependencies -->
+  <!-- Interactor depends on Repository Interface -->
+  <line x1="900" y1="270" x2="1060" y2="270" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="980" y="265" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">uses</text>
+
+  <!-- Interactor depends on Executor Interface -->
+  <path d="M 840 310 Q 980 380 1120 500" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" fill="none"/>
+  <text x="980" y="380" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">uses executor</text>
+
+  <!-- Data Layer Dependencies -->
+  <!-- Repository Implementation implements Repository Interface -->
+  <path d="M 200 500 Q 630 350 1060 310" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)" fill="none"/>
+  <text x="630" y="380" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">implements</text>
+
+  <!-- Repository depends on DataSource Interface -->
+  <line x1="200" y1="540" x2="500" y2="540" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="350" y="535" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">uses</text>
+
+  <!-- DataSources implement DataSource Interface -->
+  <line x1="340" y1="540" x2="500" y2="540" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <line x1="480" y1="540" x2="500" y2="540" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="420" y="535" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">implement</text>
+
+  <!-- Executor Layer Dependencies -->
+  <!-- Concrete Executors implement Executor Interface -->
+  <line x1="900" y1="540" x2="1060" y2="540" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <line x1="1040" y1="540" x2="1060" y2="540" stroke="#3498db" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow-blue)"/>
+  <text x="980" y="535" text-anchor="middle" font-family="Arial" font-size="9" fill="#3498db">implement</text>
+
+  <!-- Dependency Injection Arrows -->
+  <line x1="140" y1="450" x2="140" y2="380" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-green)"/>
+  <text x="160" y="415" text-anchor="start" font-family="Arial" font-size="9" fill="#27ae60">DI: Repository</text>
+
+  <line x1="840" y1="450" x2="840" y2="380" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-green)"/>
+  <text x="860" y="415" text-anchor="start" font-family="Arial" font-size="9" fill="#27ae60">DI: Executor</text>
+
+  <line x1="420" y1="380" x2="420" y2="450" stroke="#27ae60" stroke-width="2" stroke-dasharray="3,3" marker-end="url(#arrow-green)"/>
+  <text x="440" y="415" text-anchor="start" font-family="Arial" font-size="9" fill="#27ae60">DI: Interactor</text>
+
+  <!-- Principles and Benefits -->
+  <g id="principles">
+    <rect x="50" y="700" width="1300" height="250" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="10"/>
+    <text x="700" y="730" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#2c3e50">依赖倒置原则 (Dependency Inversion Principle)</text>
+
+    <!-- Key Principles -->
+    <text x="70" y="760" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">核心原则：</text>
+    <text x="70" y="780" font-family="Arial" font-size="11" fill="#2c3e50">1. 高层模块不应该依赖低层模块，两者都应该依赖抽象</text>
+    <text x="70" y="795" font-family="Arial" font-size="11" fill="#2c3e50">2. 抽象不应该依赖具体实现，具体实现应该依赖抽象</text>
+    <text x="70" y="810" font-family="Arial" font-size="11" fill="#2c3e50">3. 通过接口隔离，实现松耦合设计</text>
+
+    <!-- Benefits -->
+    <text x="70" y="840" font-family="Arial" font-size="14" font-weight="bold" fill="#27ae60">架构优势：</text>
+    <text x="70" y="860" font-family="Arial" font-size="11" fill="#2c3e50">• 可测试性：每层都可以独立进行单元测试</text>
+    <text x="70" y="875" font-family="Arial" font-size="11" fill="#2c3e50">• 可维护性：修改某层实现不影响其他层</text>
+    <text x="70" y="890" font-family="Arial" font-size="11" fill="#2c3e50">• 可扩展性：易于添加新功能和替换组件</text>
+    <text x="70" y="905" font-family="Arial" font-size="11" fill="#2c3e50">• 关注点分离：每层专注于自己的职责</text>
+
+    <!-- Dependency Injection -->
+    <text x="450" y="840" font-family="Arial" font-size="14" font-weight="bold" fill="#9c27b0">依赖注入 (DI)：</text>
+    <text x="450" y="860" font-family="Arial" font-size="11" fill="#2c3e50">• 构造函数注入：通过构造函数传入依赖</text>
+    <text x="450" y="875" font-family="Arial" font-size="11" fill="#2c3e50">• 接口注入：依赖于抽象接口而非具体实现</text>
+    <text x="450" y="890" font-family="Arial" font-size="11" fill="#2c3e50">• 容器管理：使用DI框架管理对象生命周期</text>
+    <text x="450" y="905" font-family="Arial" font-size="11" fill="#2c3e50">• 配置灵活：运行时决定具体实现</text>
+
+    <!-- Testing Benefits -->
+    <text x="800" y="840" font-family="Arial" font-size="14" font-weight="bold" fill="#e74c3c">测试优势：</text>
+    <text x="800" y="860" font-family="Arial" font-size="11" fill="#2c3e50">• Mock对象：可以轻松创建测试替身</text>
+    <text x="800" y="875" font-family="Arial" font-size="11" fill="#2c3e50">• 隔离测试：每层可以独立测试</text>
+    <text x="800" y="890" font-family="Arial" font-size="11" fill="#2c3e50">• 快速测试：避免依赖外部资源</text>
+    <text x="800" y="905" font-family="Arial" font-size="11" fill="#2c3e50">• 覆盖率高：容易达到高测试覆盖率</text>
+
+    <!-- Implementation Tips -->
+    <text x="1150" y="840" font-family="Arial" font-size="14" font-weight="bold" fill="#f39c12">实现要点：</text>
+    <text x="1150" y="860" font-family="Arial" font-size="11" fill="#2c3e50">• 接口设计：定义清晰的接口契约</text>
+    <text x="1150" y="875" font-family="Arial" font-size="11" fill="#2c3e50">• 单一职责：每个类只负责一个职责</text>
+    <text x="1150" y="890" font-family="Arial" font-size="11" fill="#2c3e50">• 开闭原则：对扩展开放，对修改关闭</text>
+    <text x="1150" y="905" font-family="Arial" font-size="11" fill="#2c3e50">• 里氏替换：子类可以替换父类</text>
+  </g>
+</svg>

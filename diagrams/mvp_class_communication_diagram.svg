@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1600" height="1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #2c3e50; }
+      .subtitle { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; fill: #34495e; }
+      .text { font-family: Arial, sans-serif; font-size: 12px; fill: #2c3e50; }
+      .small-text { font-family: Arial, sans-serif; font-size: 10px; fill: #7f8c8d; }
+      .class-box { fill: #3498db; stroke: #2980b9; stroke-width: 2; rx: 8; ry: 8; }
+      .interface-box { fill: #e74c3c; stroke: #c0392b; stroke-width: 2; rx: 8; ry: 8; }
+      .model-box { fill: #2ecc71; stroke: #27ae60; stroke-width: 2; rx: 8; ry: 8; }
+      .util-box { fill: #f39c12; stroke: #e67e22; stroke-width: 2; rx: 8; ry: 8; }
+      .white-text { fill: white; font-weight: bold; }
+      .method-call { stroke: #3498db; stroke-width: 2; fill: none; marker-end: url(#method-arrow); }
+      .data-flow { stroke: #2ecc71; stroke-width: 2; fill: none; marker-end: url(#data-arrow); }
+      .event-flow { stroke: #e74c3c; stroke-width: 2; fill: none; marker-end: url(#event-arrow); stroke-dasharray: 5,5; }
+      .dependency { stroke: #9b59b6; stroke-width: 2; fill: none; marker-end: url(#dependency-arrow); stroke-dasharray: 10,5; }
+      .callback { stroke: #f39c12; stroke-width: 2; fill: none; marker-end: url(#callback-arrow); }
+    </style>
+    
+    <!-- Arrow markers for different communication types -->
+    <marker id="method-arrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#3498db" />
+    </marker>
+    <marker id="data-arrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#2ecc71" />
+    </marker>
+    <marker id="event-arrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#e74c3c" />
+    </marker>
+    <marker id="dependency-arrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#9b59b6" />
+    </marker>
+    <marker id="callback-arrow" markerWidth="12" markerHeight="8" refX="11" refY="4" orient="auto">
+      <polygon points="0 0, 12 4, 0 8" fill="#f39c12" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="800" y="30" text-anchor="middle" class="title">MVP类图间通信图标 (MVP Class Communication Icons)</text>
+  <text x="800" y="55" text-anchor="middle" class="subtitle">展示各层类之间的通信方式和交互关系</text>
+
+  <!-- Presentation Layer -->
+  <rect x="50" y="100" width="400" height="250" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="2" rx="10"/>
+  <text x="250" y="125" text-anchor="middle" class="subtitle">Presentation Layer</text>
+  
+  <!-- Activity -->
+  <rect x="80" y="150" width="140" height="70" class="class-box"/>
+  <text x="150" y="175" text-anchor="middle" class="white-text">MainActivity</text>
+  <text x="150" y="190" text-anchor="middle" class="small-text">+onCreate()</text>
+  <text x="150" y="205" text-anchor="middle" class="small-text">+onDestroy()</text>
+  
+  <!-- View Interface -->
+  <rect x="280" y="150" width="140" height="70" class="interface-box"/>
+  <text x="350" y="175" text-anchor="middle" class="white-text">CharacterView</text>
+  <text x="350" y="190" text-anchor="middle" class="small-text">+showCharacters()</text>
+  <text x="350" y="205" text-anchor="middle" class="small-text">+showError()</text>
+  
+  <!-- Presenter -->
+  <rect x="180" y="260" width="140" height="70" class="class-box"/>
+  <text x="250" y="285" text-anchor="middle" class="white-text">CharacterPresenter</text>
+  <text x="250" y="300" text-anchor="middle" class="small-text">+loadCharacters()</text>
+  <text x="250" y="315" text-anchor="middle" class="small-text">+onCharacterClick()</text>
+
+  <!-- Domain Layer -->
+  <rect x="550" y="100" width="400" height="250" fill="#e8f5e8" stroke="#27ae60" stroke-width="2" rx="10"/>
+  <text x="750" y="125" text-anchor="middle" class="subtitle">Domain Layer</text>
+  
+  <!-- Interactor -->
+  <rect x="580" y="150" width="140" height="70" class="class-box"/>
+  <text x="650" y="175" text-anchor="middle" class="white-text">GetCharactersUseCase</text>
+  <text x="650" y="190" text-anchor="middle" class="small-text">+execute()</text>
+  <text x="650" y="205" text-anchor="middle" class="small-text">+cancel()</text>
+  
+  <!-- Model -->
+  <rect x="780" y="150" width="140" height="70" class="model-box"/>
+  <text x="850" y="175" text-anchor="middle" class="white-text">MarvelCharacter</text>
+  <text x="850" y="190" text-anchor="middle" class="small-text">+id: int</text>
+  <text x="850" y="205" text-anchor="middle" class="small-text">+name: String</text>
+  
+  <!-- Repository Interface -->
+  <rect x="680" y="260" width="140" height="70" class="interface-box"/>
+  <text x="750" y="285" text-anchor="middle" class="white-text">CharacterRepository</text>
+  <text x="750" y="300" text-anchor="middle" class="small-text">+getCharacters()</text>
+  <text x="750" y="315" text-anchor="middle" class="small-text">+getCharacter(id)</text>
+
+  <!-- Data Layer -->
+  <rect x="1050" y="100" width="400" height="250" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="10"/>
+  <text x="1250" y="125" text-anchor="middle" class="subtitle">Data Layer</text>
+  
+  <!-- Repository Implementation -->
+  <rect x="1080" y="150" width="140" height="70" class="class-box"/>
+  <text x="1150" y="175" text-anchor="middle" class="white-text">CharacterRepoImpl</text>
+  <text x="1150" y="190" text-anchor="middle" class="small-text">+getCharacters()</text>
+  <text x="1150" y="205" text-anchor="middle" class="small-text">+cacheData()</text>
+  
+  <!-- Data Source -->
+  <rect x="1280" y="150" width="140" height="70" class="util-box"/>
+  <text x="1350" y="175" text-anchor="middle" class="white-text">ApiDataSource</text>
+  <text x="1350" y="190" text-anchor="middle" class="small-text">+fetchCharacters()</text>
+  <text x="1350" y="205" text-anchor="middle" class="small-text">+handleResponse()</text>
+  
+  <!-- Cache -->
+  <rect x="1180" y="260" width="140" height="70" class="util-box"/>
+  <text x="1250" y="285" text-anchor="middle" class="white-text">CacheManager</text>
+  <text x="1250" y="300" text-anchor="middle" class="small-text">+store()</text>
+  <text x="1250" y="315" text-anchor="middle" class="small-text">+retrieve()</text>
+
+  <!-- Communication Lines -->
+  
+  <!-- Method Calls (Blue) -->
+  <line x1="220" y1="185" x2="280" y2="185" class="method-call"/>
+  <text x="250" y="180" text-anchor="middle" class="small-text">implements</text>
+  
+  <line x1="250" y1="260" x2="250" y2="220" class="method-call"/>
+  <text x="270" y="240" class="small-text">bindView()</text>
+  
+  <line x1="320" y1="295" x2="580" y2="185" class="method-call"/>
+  <text x="450" y="235" class="small-text">execute()</text>
+  
+  <line x1="720" y1="185" x2="780" y2="185" class="method-call"/>
+  <text x="750" y="180" text-anchor="middle" class="small-text">creates</text>
+  
+  <line x1="750" y1="260" x2="1080" y2="185" class="method-call"/>
+  <text x="915" y="220" class="small-text">getCharacters()</text>
+  
+  <line x1="1220" y1="185" x2="1280" y2="185" class="method-call"/>
+  <text x="1250" y="180" text-anchor="middle" class="small-text">fetch</text>
+  
+  <!-- Data Flow (Green) -->
+  <line x1="1150" y1="220" x2="850" y2="220" class="data-flow"/>
+  <text x="1000" y="235" class="small-text">data</text>
+  
+  <line x1="780" y1="185" x2="720" y2="185" class="data-flow"/>
+  <text x="750" y="200" class="small-text">characters</text>
+  
+  <line x1="580" y1="185" x2="320" y2="260" class="data-flow"/>
+  <text x="450" y="220" class="small-text">result</text>
+  
+  <line x1="250" y1="260" x2="350" y2="220" class="data-flow"/>
+  <text x="300" y="235" class="small-text">update</text>
+  
+  <!-- Event Flow (Red Dashed) -->
+  <line x1="150" y1="220" x2="250" y2="260" class="event-flow"/>
+  <text x="200" y="245" class="small-text">onClick</text>
+  
+  <line x1="350" y1="220" x2="250" y2="260" class="event-flow"/>
+  <text x="300" y="250" class="small-text">userAction</text>
+  
+  <!-- Dependency (Purple Dashed) -->
+  <line x1="650" y1="220" x2="750" y2="260" class="dependency"/>
+  <text x="700" y="245" class="small-text">depends</text>
+  
+  <line x1="1150" y1="220" x2="1250" y2="260" class="dependency"/>
+  <text x="1200" y="245" class="small-text">uses</text>
+  
+  <!-- Callback (Orange) -->
+  <line x1="1350" y1="220" x2="250" y2="330" class="callback"/>
+  <text x="800" y="280" class="small-text">async callback</text>
+
+  <!-- Communication Icons Section -->
+  <rect x="50" y="420" width="1300" height="300" fill="#f8f9fa" stroke="#dee2e6" stroke-width="2" rx="10"/>
+  <text x="800" y="450" text-anchor="middle" class="subtitle">通信图标详解 (Communication Icons Details)</text>
+  
+  <!-- Icon Examples -->
+  <g transform="translate(100, 400)">
+    <!-- Method Call Icon -->
+    <circle cx="30" cy="30" r="25" fill="#3498db" stroke="#2980b9" stroke-width="2"/>
+    <text x="30" y="35" text-anchor="middle" class="white-text">M</text>
+    <text x="30" y="70" text-anchor="middle" class="text">方法调用</text>
+    <text x="30" y="85" text-anchor="middle" class="small-text">Method Call</text>
+    
+    <!-- Data Transfer Icon -->
+    <rect x="130" y="5" width="50" height="50" rx="10" fill="#2ecc71" stroke="#27ae60" stroke-width="2"/>
+    <text x="155" y="35" text-anchor="middle" class="white-text">D</text>
+    <text x="155" y="70" text-anchor="middle" class="text">数据传递</text>
+    <text x="155" y="85" text-anchor="middle" class="small-text">Data Transfer</text>
+    
+    <!-- Event Icon -->
+    <polygon points="230,5 280,30 230,55" fill="#e74c3c" stroke="#c0392b" stroke-width="2"/>
+    <text x="250" y="35" text-anchor="middle" class="white-text">E</text>
+    <text x="255" y="70" text-anchor="middle" class="text">事件通知</text>
+    <text x="255" y="85" text-anchor="middle" class="small-text">Event Notification</text>
+    
+    <!-- Dependency Icon -->
+    <ellipse cx="355" cy="30" rx="25" ry="15" fill="#9b59b6" stroke="#8e44ad" stroke-width="2"/>
+    <text x="355" y="35" text-anchor="middle" class="white-text">R</text>
+    <text x="355" y="70" text-anchor="middle" class="text">依赖关系</text>
+    <text x="355" y="85" text-anchor="middle" class="small-text">Dependency</text>
+    
+    <!-- Callback Icon -->
+    <path d="M430,5 L480,30 L430,55 Z M450,15 L450,45" fill="#f39c12" stroke="#e67e22" stroke-width="2"/>
+    <text x="455" y="35" text-anchor="middle" class="white-text">C</text>
+    <text x="455" y="70" text-anchor="middle" class="text">回调函数</text>
+    <text x="455" y="85" text-anchor="middle" class="small-text">Callback</text>
+    
+    <!-- Async Icon -->
+    <g>
+      <circle cx="555" cy="20" r="15" fill="#17a2b8" stroke="#138496" stroke-width="2"/>
+      <circle cx="555" cy="40" r="15" fill="#17a2b8" stroke="#138496" stroke-width="2"/>
+      <text x="555" y="25" text-anchor="middle" class="white-text">A</text>
+      <text x="555" y="45" text-anchor="middle" class="white-text">S</text>
+    </g>
+    <text x="555" y="70" text-anchor="middle" class="text">异步处理</text>
+    <text x="555" y="85" text-anchor="middle" class="small-text">Async Processing</text>
+  </g>
+  
+  <!-- Communication Patterns -->
+  <text x="150" y="570" class="subtitle">通信模式 (Communication Patterns):</text>
+  
+  <g transform="translate(150, 590)">
+    <!-- Synchronous Pattern -->
+    <rect x="0" y="0" width="200" height="80" fill="#e3f2fd" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="100" y="20" text-anchor="middle" class="text">同步通信模式</text>
+    <line x1="20" y1="35" x2="80" y2="35" class="method-call"/>
+    <line x1="80" y1="50" x2="20" y2="50" class="data-flow"/>
+    <text x="100" y="70" text-anchor="middle" class="small-text">请求-响应模式</text>
+    
+    <!-- Asynchronous Pattern -->
+    <rect x="220" y="0" width="200" height="80" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="320" y="20" text-anchor="middle" class="text">异步通信模式</text>
+    <line x1="240" y1="35" x2="300" y2="35" class="method-call"/>
+    <line x1="300" y1="50" x2="400" y2="50" class="callback"/>
+    <text x="320" y="70" text-anchor="middle" class="small-text">回调处理模式</text>
+    
+    <!-- Observer Pattern -->
+    <rect x="440" y="0" width="200" height="80" fill="#fff3e0" stroke="#f57c00" stroke-width="1" rx="5"/>
+    <text x="540" y="20" text-anchor="middle" class="text">观察者模式</text>
+    <line x1="460" y1="35" x2="520" y2="35" class="event-flow"/>
+    <line x1="520" y1="50" x2="620" y2="50" class="event-flow"/>
+    <text x="540" y="70" text-anchor="middle" class="small-text">事件驱动模式</text>
+  </g>
+  
+  <!-- Legend -->
+  <rect x="50" y="750" width="1300" height="200" fill="#f8f9fa" stroke="#dee2e6" stroke-width="1" rx="5"/>
+  <text x="700" y="780" text-anchor="middle" class="subtitle">图例说明 (Legend)</text>
+  
+  <g transform="translate(100, 800)">
+    <line x1="0" y1="0" x2="50" y2="0" class="method-call"/>
+    <text x="60" y="5" class="text">方法调用 (Method Call)</text>
+    
+    <line x1="250" y1="0" x2="300" y2="0" class="data-flow"/>
+    <text x="310" y="5" class="text">数据流 (Data Flow)</text>
+    
+    <line x1="500" y1="0" x2="550" y2="0" class="event-flow"/>
+    <text x="560" y="5" class="text">事件流 (Event Flow)</text>
+    
+    <line x1="0" y1="30" x2="50" y2="30" class="dependency"/>
+    <text x="60" y="35" class="text">依赖关系 (Dependency)</text>
+    
+    <line x1="250" y1="30" x2="300" y2="30" class="callback"/>
+    <text x="310" y="35" class="text">回调 (Callback)</text>
+  </g>
+  
+  <!-- Best Practices -->
+  <text x="100" y="870" class="subtitle">最佳实践 (Best Practices):</text>
+  <text x="100" y="895" class="text">• 使用接口定义契约，降低耦合度</text>
+  <text x="100" y="915" class="text">• 通过依赖注入管理对象生命周期</text>
+  <text x="100" y="935" class="text">• 异步处理耗时操作，避免阻塞UI线程</text>
+  <text x="100" y="955" class="text">• 实现观察者模式处理状态变化通知</text>
+  
+  <text x="700" y="895" class="text">• 明确定义各层职责，避免跨层直接调用</text>
+  <text x="700" y="915" class="text">• 使用回调机制处理异步结果</text>
+  <text x="700" y="935" class="text">• 合理使用缓存机制提升性能</text>
+  <text x="700" y="955" class="text">• 统一错误处理和异常传播机制</text>
+</svg>

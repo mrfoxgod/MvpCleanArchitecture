@@ -1,0 +1,251 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1600" height="1200" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="800" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50">MVP Clean Architecture - 序列图（方法调用时序）</text>
+
+  <!-- Actors/Components -->
+  <g id="actors">
+    <!-- User -->
+    <rect x="50" y="80" width="100" height="60" fill="#3498db" stroke="#2980b9" stroke-width="2" rx="5"/>
+    <text x="100" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">User</text>
+    <text x="100" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">用户</text>
+
+    <!-- View -->
+    <rect x="200" y="80" width="120" height="60" fill="#1976d2" stroke="#1565c0" stroke-width="2" rx="5"/>
+    <text x="260" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">View</text>
+    <text x="260" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">Activity/Fragment</text>
+
+    <!-- Presenter -->
+    <rect x="370" y="80" width="120" height="60" fill="#f57c00" stroke="#ef6c00" stroke-width="2" rx="5"/>
+    <text x="430" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">Presenter</text>
+    <text x="430" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">业务协调器</text>
+
+    <!-- Interactor -->
+    <rect x="540" y="80" width="120" height="60" fill="#7b1fa2" stroke="#6a1b9a" stroke-width="2" rx="5"/>
+    <text x="600" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">Interactor</text>
+    <text x="600" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">用例执行器</text>
+
+    <!-- Repository -->
+    <rect x="710" y="80" width="120" height="60" fill="#388e3c" stroke="#2e7d32" stroke-width="2" rx="5"/>
+    <text x="770" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">Repository</text>
+    <text x="770" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">数据仓库</text>
+
+    <!-- DataSource -->
+    <rect x="880" y="80" width="120" height="60" fill="#00796b" stroke="#00695c" stroke-width="2" rx="5"/>
+    <text x="940" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">DataSource</text>
+    <text x="940" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">数据源</text>
+
+    <!-- Executor -->
+    <rect x="1050" y="80" width="120" height="60" fill="#ffa000" stroke="#ff8f00" stroke-width="2" rx="5"/>
+    <text x="1110" y="105" text-anchor="middle" font-family="Arial" font-size="12" font-weight="bold" fill="white">Executor</text>
+    <text x="1110" y="120" text-anchor="middle" font-family="Arial" font-size="10" fill="white">线程执行器</text>
+  </g>
+
+  <!-- Lifelines -->
+  <g id="lifelines" stroke="#bdc3c7" stroke-width="2" stroke-dasharray="5,5">
+    <line x1="100" y1="150" x2="100" y2="1100"/>
+    <line x1="260" y1="150" x2="260" y2="1100"/>
+    <line x1="430" y1="150" x2="430" y2="1100"/>
+    <line x1="600" y1="150" x2="600" y2="1100"/>
+    <line x1="770" y1="150" x2="770" y2="1100"/>
+    <line x1="940" y1="150" x2="940" y2="1100"/>
+    <line x1="1110" y1="150" x2="1110" y2="1100"/>
+  </g>
+
+  <!-- Sequence Messages -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+    <marker id="arrow-return" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: User clicks button -->
+  <g id="step1">
+    <line x1="100" y1="180" x2="260" y2="180" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="180" y="175" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">1. onClick()</text>
+    <rect x="250" y="185" width="20" height="30" fill="#1976d2" stroke="#1565c0"/>
+  </g>
+
+  <!-- Step 2: View calls Presenter -->
+  <g id="step2">
+    <line x1="260" y1="200" x2="430" y2="200" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="345" y="195" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">2. onLoadDataClicked()</text>
+    <rect x="420" y="205" width="20" height="30" fill="#f57c00" stroke="#ef6c00"/>
+  </g>
+
+  <!-- Step 3: Presenter shows loading -->
+  <g id="step3">
+    <line x1="430" y1="220" x2="260" y2="220" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="345" y="215" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">3. showLoading()</text>
+  </g>
+
+  <!-- Step 4: Presenter calls Interactor -->
+  <g id="step4">
+    <line x1="430" y1="250" x2="600" y2="250" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="515" y="245" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">4. execute(callback)</text>
+    <rect x="590" y="255" width="20" height="30" fill="#7b1fa2" stroke="#6a1b9a"/>
+  </g>
+
+  <!-- Step 5: Interactor calls Executor -->
+  <g id="step5">
+    <line x1="600" y1="270" x2="1110" y2="270" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="855" y="265" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">5. execute(runnable)</text>
+    <rect x="1100" y="275" width="20" height="200" fill="#ffa000" stroke="#ff8f00"/>
+  </g>
+
+  <!-- Step 6: Executor runs in background thread -->
+  <g id="step6">
+    <rect x="1090" y="290" width="40" height="20" fill="#fff3e0" stroke="#ffa000" stroke-dasharray="3,3"/>
+    <text x="1110" y="305" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">Background Thread</text>
+  </g>
+
+  <!-- Step 7: Interactor calls Repository -->
+  <g id="step7">
+    <line x1="600" y1="320" x2="770" y2="320" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="685" y="315" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">6. getData()</text>
+    <rect x="760" y="325" width="20" height="30" fill="#388e3c" stroke="#2e7d32"/>
+  </g>
+
+  <!-- Step 8: Repository calls DataSource -->
+  <g id="step8">
+    <line x1="770" y1="340" x2="940" y2="340" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="855" y="335" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">7. fetchData()</text>
+    <rect x="930" y="345" width="20" height="50" fill="#00796b" stroke="#00695c"/>
+  </g>
+
+  <!-- Step 9: DataSource returns data -->
+  <g id="step9">
+    <line x1="940" y1="370" x2="770" y2="370" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="855" y="365" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">8. return data</text>
+  </g>
+
+  <!-- Step 10: Repository returns to Interactor -->
+  <g id="step10">
+    <line x1="770" y1="390" x2="600" y2="390" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="685" y="385" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">9. return models</text>
+  </g>
+
+  <!-- Step 11: Executor posts to main thread -->
+  <g id="step11">
+    <line x1="1110" y1="420" x2="430" y2="420" stroke="#ffa000" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5,5"/>
+    <text x="770" y="415" text-anchor="middle" font-family="Arial" font-size="11" fill="#ffa000">10. postToMainThread()</text>
+    <rect x="420" y="425" width="20" height="30" fill="#f57c00" stroke="#ef6c00"/>
+  </g>
+
+  <!-- Step 12: Presenter processes result -->
+  <g id="step12">
+    <rect x="410" y="440" width="40" height="20" fill="#fff3e0" stroke="#f57c00" stroke-dasharray="3,3"/>
+    <text x="430" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">Process Data</text>
+  </g>
+
+  <!-- Step 13: Presenter hides loading -->
+  <g id="step13">
+    <line x1="430" y1="480" x2="260" y2="480" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="345" y="475" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">11. hideLoading()</text>
+  </g>
+
+  <!-- Step 14: Presenter shows data -->
+  <g id="step14">
+    <line x1="430" y1="500" x2="260" y2="500" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="345" y="495" text-anchor="middle" font-family="Arial" font-size="11" fill="#27ae60">12. showData(list)</text>
+  </g>
+
+  <!-- Error Scenario -->
+  <text x="80" y="550" font-family="Arial" font-size="16" font-weight="bold" fill="#e74c3c">错误处理场景：</text>
+
+  <!-- Error Step 1: DataSource error -->
+  <g id="error1">
+    <line x1="940" y1="580" x2="770" y2="580" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-return)" stroke-dasharray="3,3"/>
+    <text x="855" y="575" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">error: NetworkException</text>
+    <rect x="760" y="585" width="20" height="30" fill="#388e3c" stroke="#2e7d32"/>
+  </g>
+
+  <!-- Error Step 2: Repository propagates error -->
+  <g id="error2">
+    <line x1="770" y1="600" x2="600" y2="600" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-return)" stroke-dasharray="3,3"/>
+    <text x="685" y="595" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">error: DataException</text>
+  </g>
+
+  <!-- Error Step 3: Executor posts error to main thread -->
+  <g id="error3">
+    <line x1="1110" y1="620" x2="430" y2="620" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="5,5"/>
+    <text x="770" y="615" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">onError(exception)</text>
+    <rect x="420" y="625" width="20" height="30" fill="#f57c00" stroke="#ef6c00"/>
+  </g>
+
+  <!-- Error Step 4: Presenter shows error -->
+  <g id="error4">
+    <line x1="430" y1="640" x2="260" y2="640" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-return)"/>
+    <text x="345" y="635" text-anchor="middle" font-family="Arial" font-size="11" fill="#e74c3c">showError(message)</text>
+  </g>
+
+  <!-- Method Details -->
+  <g id="method-details">
+    <rect x="50" y="700" width="1500" height="350" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="10"/>
+    <text x="800" y="730" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#2c3e50">关键方法调用详解</text>
+
+    <!-- View Methods -->
+    <text x="70" y="760" font-family="Arial" font-size="14" font-weight="bold" fill="#1976d2">View 接口方法：</text>
+    <text x="70" y="780" font-family="Arial" font-size="11" fill="#2c3e50">• showLoading() - 显示加载指示器</text>
+    <text x="70" y="795" font-family="Arial" font-size="11" fill="#2c3e50">• hideLoading() - 隐藏加载指示器</text>
+    <text x="70" y="810" font-family="Arial" font-size="11" fill="#2c3e50">• showData(List&lt;Model&gt; data) - 显示数据列表</text>
+    <text x="70" y="825" font-family="Arial" font-size="11" fill="#2c3e50">• showError(String message) - 显示错误信息</text>
+    <text x="70" y="840" font-family="Arial" font-size="11" fill="#2c3e50">• showEmpty() - 显示空状态</text>
+
+    <!-- Presenter Methods -->
+    <text x="400" y="760" font-family="Arial" font-size="14" font-weight="bold" fill="#f57c00">Presenter 方法：</text>
+    <text x="400" y="780" font-family="Arial" font-size="11" fill="#2c3e50">• onViewCreated() - 视图创建时初始化</text>
+    <text x="400" y="795" font-family="Arial" font-size="11" fill="#2c3e50">• onLoadDataClicked() - 处理加载数据事件</text>
+    <text x="400" y="810" font-family="Arial" font-size="11" fill="#2c3e50">• onDestroy() - 清理资源和取消订阅</text>
+    <text x="400" y="825" font-family="Arial" font-size="11" fill="#2c3e50">• processData(List&lt;Model&gt;) - 处理和转换数据</text>
+    <text x="400" y="840" font-family="Arial" font-size="11" fill="#2c3e50">• handleError(Exception) - 处理错误情况</text>
+
+    <!-- Interactor Methods -->
+    <text x="730" y="760" font-family="Arial" font-size="14" font-weight="bold" fill="#7b1fa2">Interactor 方法：</text>
+    <text x="730" y="780" font-family="Arial" font-size="11" fill="#2c3e50">• execute(Callback callback) - 执行用例</text>
+    <text x="730" y="795" font-family="Arial" font-size="11" fill="#2c3e50">• buildUseCaseObservable() - 构建可观察对象</text>
+    <text x="730" y="810" font-family="Arial" font-size="11" fill="#2c3e50">• onNext(T result) - 处理成功结果</text>
+    <text x="730" y="825" font-family="Arial" font-size="11" fill="#2c3e50">• onError(Throwable error) - 处理错误</text>
+    <text x="730" y="840" font-family="Arial" font-size="11" fill="#2c3e50">• unsubscribe() - 取消订阅</text>
+
+    <!-- Repository Methods -->
+    <text x="1060" y="760" font-family="Arial" font-size="14" font-weight="bold" fill="#388e3c">Repository 方法：</text>
+    <text x="1060" y="780" font-family="Arial" font-size="11" fill="#2c3e50">• getData() - 获取数据（缓存优先）</text>
+    <text x="1060" y="795" font-family="Arial" font-size="11" fill="#2c3e50">• saveData(List&lt;Model&gt;) - 保存数据到缓存</text>
+    <text x="1060" y="810" font-family="Arial" font-size="11" fill="#2c3e50">• clearCache() - 清除缓存</text>
+    <text x="1060" y="825" font-family="Arial" font-size="11" fill="#2c3e50">• isDataFresh() - 检查数据新鲜度</text>
+    <text x="1060" y="840" font-family="Arial" font-size="11" fill="#2c3e50">• getFromCache() - 从缓存获取</text>
+
+    <!-- Threading Details -->
+    <text x="70" y="880" font-family="Arial" font-size="14" font-weight="bold" fill="#ffa000">线程管理详解：</text>
+    <text x="70" y="900" font-family="Arial" font-size="11" fill="#2c3e50">• ThreadExecutor.execute() - 在后台线程池中执行耗时操作</text>
+    <text x="70" y="915" font-family="Arial" font-size="11" fill="#2c3e50">• PostExecutionThread.post() - 将结果回调到主线程</text>
+    <text x="70" y="930" font-family="Arial" font-size="11" fill="#2c3e50">• 避免 NetworkOnMainThreadException 和 ANR</text>
+
+    <!-- Error Handling -->
+    <text x="70" y="965" font-family="Arial" font-size="14" font-weight="bold" fill="#e74c3c">错误处理策略：</text>
+    <text x="70" y="985" font-family="Arial" font-size="11" fill="#2c3e50">• 网络错误：显示重试选项</text>
+    <text x="300" y="985" font-family="Arial" font-size="11" fill="#2c3e50">• 数据解析错误：显示友好提示</text>
+    <text x="530" y="985" font-family="Arial" font-size="11" fill="#2c3e50">• 缓存失效：自动刷新数据</text>
+
+    <text x="70" y="1005" font-family="Arial" font-size="11" fill="#2c3e50">• 超时处理：设置合理的超时时间</text>
+    <text x="300" y="1005" font-family="Arial" font-size="11" fill="#2c3e50">• 异常传播：保持异常信息的完整性</text>
+    <text x="530" y="1005" font-family="Arial" font-size="11" fill="#2c3e50">• 用户体验：提供清晰的错误反馈</text>
+
+    <!-- Performance Tips -->
+    <text x="800" y="880" font-family="Arial" font-size="14" font-weight="bold" fill="#9c27b0">性能优化要点：</text>
+    <text x="800" y="900" font-family="Arial" font-size="11" fill="#2c3e50">• 数据缓存：减少网络请求频率</text>
+    <text x="800" y="915" font-family="Arial" font-size="11" fill="#2c3e50">• 懒加载：按需加载数据</text>
+    <text x="800" y="930" font-family="Arial" font-size="11" fill="#2c3e50">• 分页加载：大数据集分批处理</text>
+    <text x="800" y="945" font-family="Arial" font-size="11" fill="#2c3e50">• 内存管理：及时释放不需要的资源</text>
+
+    <text x="800" y="970" font-family="Arial" font-size="11" fill="#2c3e50">• 线程池复用：避免频繁创建线程</text>
+    <text x="800" y="985" font-family="Arial" font-size="11" fill="#2c3e50">• 数据预加载：提前准备可能需要的数据</text>
+    <text x="800" y="1000" font-family="Arial" font-size="11" fill="#2c3e50">• UI优化：避免在主线程进行重计算</text>
+  </g>
+</svg>

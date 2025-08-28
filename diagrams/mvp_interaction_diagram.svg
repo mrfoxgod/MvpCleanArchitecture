@@ -1,0 +1,228 @@
+<svg width="1400" height="1000" viewBox="0 0 1400 1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1400" height="1000" fill="#f8f9fa"/>
+
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50">MVP Clean Architecture - 模块间通信交互详图</text>
+
+  <!-- View Layer -->
+  <g id="view-layer">
+    <rect x="50" y="80" width="300" height="200" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="10"/>
+    <text x="200" y="105" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#1976d2">View Layer</text>
+
+    <!-- Activity -->
+    <rect x="70" y="120" width="120" height="60" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="130" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#1976d2">Activity</text>
+    <text x="130" y="155" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">用户界面</text>
+    <text x="130" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">事件处理</text>
+
+    <!-- Fragment -->
+    <rect x="210" y="120" width="120" height="60" fill="#bbdefb" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="270" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#1976d2">Fragment</text>
+    <text x="270" y="155" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">视图组件</text>
+    <text x="270" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">生命周期</text>
+
+    <!-- View Interface -->
+    <rect x="70" y="200" width="260" height="60" fill="#90caf9" stroke="#1976d2" stroke-width="1" rx="5"/>
+    <text x="200" y="220" text-anchor="middle" font-family="Arial" font-size="12" fill="#1976d2">View Interface</text>
+    <text x="200" y="235" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">showLoading(), hideLoading()</text>
+    <text x="200" y="250" text-anchor="middle" font-family="Arial" font-size="10" fill="#1976d2">showData(), showError()</text>
+  </g>
+
+  <!-- Presenter Layer -->
+  <g id="presenter-layer">
+    <rect x="450" y="80" width="300" height="200" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="10"/>
+    <text x="600" y="105" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#f57c00">Presenter Layer</text>
+
+    <!-- Presenter -->
+    <rect x="470" y="120" width="260" height="80" fill="#ffcc02" stroke="#f57c00" stroke-width="1" rx="5"/>
+    <text x="600" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#f57c00">Presenter</text>
+    <text x="600" y="155" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">业务逻辑协调</text>
+    <text x="600" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">View ↔ Model 桥梁</text>
+    <text x="600" y="185" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">数据转换与格式化</text>
+
+    <!-- Presenter Methods -->
+    <rect x="470" y="210" width="260" height="50" fill="#ffe0b2" stroke="#f57c00" stroke-width="1" rx="5"/>
+    <text x="600" y="225" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">onViewCreated(), onDestroy()</text>
+    <text x="600" y="240" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">loadData(), handleUserAction()</text>
+    <text x="600" y="255" text-anchor="middle" font-family="Arial" font-size="10" fill="#f57c00">updateView(), processResult()</text>
+  </g>
+
+  <!-- Domain Layer -->
+  <g id="domain-layer">
+    <rect x="850" y="80" width="300" height="200" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="10"/>
+    <text x="1000" y="105" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#7b1fa2">Domain Layer</text>
+
+    <!-- Interactor -->
+    <rect x="870" y="120" width="120" height="60" fill="#ce93d8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="930" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b1fa2">Interactor</text>
+    <text x="930" y="155" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">用例执行</text>
+    <text x="930" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">业务规则</text>
+
+    <!-- Model -->
+    <rect x="1010" y="120" width="120" height="60" fill="#ce93d8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="1070" y="140" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b1fa2">Model</text>
+    <text x="1070" y="155" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">数据实体</text>
+    <text x="1070" y="170" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">业务对象</text>
+
+    <!-- Repository Interface -->
+    <rect x="870" y="200" width="260" height="60" fill="#ba68c8" stroke="#7b1fa2" stroke-width="1" rx="5"/>
+    <text x="1000" y="220" text-anchor="middle" font-family="Arial" font-size="12" fill="#7b1fa2">Repository Interface</text>
+    <text x="1000" y="235" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">getData(), saveData()</text>
+    <text x="1000" y="250" text-anchor="middle" font-family="Arial" font-size="10" fill="#7b1fa2">deleteData(), updateData()</text>
+  </g>
+
+  <!-- Data Layer -->
+  <g id="data-layer">
+    <rect x="250" y="350" width="600" height="150" fill="#e8f5e8" stroke="#388e3c" stroke-width="2" rx="10"/>
+    <text x="550" y="375" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#388e3c">Data Layer</text>
+
+    <!-- Repository Implementation -->
+    <rect x="270" y="390" width="150" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="345" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#388e3c">Repository Impl</text>
+    <text x="345" y="425" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">数据源协调</text>
+    <text x="345" y="440" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">缓存策略</text>
+    <text x="345" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">数据转换</text>
+
+    <!-- Local Data Source -->
+    <rect x="450" y="390" width="150" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="525" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#388e3c">Local DataSource</text>
+    <text x="525" y="425" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">SQLite数据库</text>
+    <text x="525" y="440" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">SharedPreferences</text>
+    <text x="525" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">文件存储</text>
+
+    <!-- Remote Data Source -->
+    <rect x="630" y="390" width="150" height="80" fill="#c8e6c9" stroke="#388e3c" stroke-width="1" rx="5"/>
+    <text x="705" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#388e3c">Remote DataSource</text>
+    <text x="705" y="425" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">REST API</text>
+    <text x="705" y="440" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">网络请求</text>
+    <text x="705" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#388e3c">JSON解析</text>
+  </g>
+
+  <!-- Executor Layer -->
+  <g id="executor-layer">
+    <rect x="950" y="350" width="300" height="150" fill="#fff8e1" stroke="#ffa000" stroke-width="2" rx="10"/>
+    <text x="1100" y="375" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#ffa000">Executor Layer</text>
+
+    <!-- Thread Executor -->
+    <rect x="970" y="390" width="120" height="80" fill="#ffecb3" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="1030" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffa000">Thread Executor</text>
+    <text x="1030" y="425" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">后台线程</text>
+    <text x="1030" y="440" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">异步执行</text>
+    <text x="1030" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">线程池管理</text>
+
+    <!-- Main Thread -->
+    <rect x="1110" y="390" width="120" height="80" fill="#ffecb3" stroke="#ffa000" stroke-width="1" rx="5"/>
+    <text x="1170" y="410" text-anchor="middle" font-family="Arial" font-size="12" fill="#ffa000">Main Thread</text>
+    <text x="1170" y="425" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">UI线程</text>
+    <text x="1170" y="440" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">结果回调</text>
+    <text x="1170" y="455" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">界面更新</text>
+  </g>
+
+  <!-- Communication Flow Arrows -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2c3e50"/>
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60"/>
+    </marker>
+  </defs>
+
+  <!-- 1. View to Presenter -->
+  <path d="M 350 150 Q 400 150 450 150" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="400" y="140" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">1. 用户事件</text>
+
+  <!-- 2. Presenter to View -->
+  <path d="M 450 180 Q 400 180 350 180" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="400" y="195" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">8. 更新UI</text>
+
+  <!-- 3. Presenter to Interactor -->
+  <path d="M 750 150 Q 800 150 850 150" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="800" y="140" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">2. 执行用例</text>
+
+  <!-- 4. Interactor to Repository -->
+  <path d="M 930 180 Q 930 300 345 350" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="650" y="270" text-anchor="middle" font-family="Arial" font-size="10" fill="#e74c3c">3. 获取数据</text>
+
+  <!-- 5. Repository to Data Sources -->
+  <path d="M 420 430 L 450 430" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <path d="M 600 430 L 630 430" stroke="#e74c3c" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="435" y="420" text-anchor="middle" font-family="Arial" font-size="9" fill="#e74c3c">4a</text>
+  <text x="615" y="420" text-anchor="middle" font-family="Arial" font-size="9" fill="#e74c3c">4b</text>
+
+  <!-- 6. Data Sources back to Repository -->
+  <path d="M 450 450 L 420 450" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <path d="M 630 450 L 600 450" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="435" y="465" text-anchor="middle" font-family="Arial" font-size="9" fill="#27ae60">5a</text>
+  <text x="615" y="465" text-anchor="middle" font-family="Arial" font-size="9" fill="#27ae60">5b</text>
+
+  <!-- 7. Repository back to Interactor -->
+  <path d="M 345 390 Q 930 320 930 200" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="650" y="310" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">6. 返回数据</text>
+
+  <!-- 8. Interactor back to Presenter -->
+  <path d="M 850 180 Q 800 180 750 180" stroke="#27ae60" stroke-width="2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="800" y="195" text-anchor="middle" font-family="Arial" font-size="10" fill="#27ae60">7. 处理结果</text>
+
+  <!-- Thread Executor connections -->
+  <path d="M 930 200 Q 930 300 970 390" stroke="#ffa000" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="950" y="300" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">异步执行</text>
+
+  <path d="M 1110 430 Q 1050 300 750 200" stroke="#ffa000" stroke-width="2" fill="none" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+  <text x="950" y="320" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffa000">主线程回调</text>
+
+  <!-- Communication Steps Legend -->
+  <g id="legend">
+    <rect x="50" y="550" width="1300" height="400" fill="#ffffff" stroke="#bdc3c7" stroke-width="1" rx="10"/>
+    <text x="700" y="580" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#2c3e50">MVP 通信交互流程详解</text>
+
+    <!-- Step by step explanation -->
+    <text x="70" y="610" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">详细交互步骤：</text>
+
+    <text x="70" y="635" font-family="Arial" font-size="12" fill="#e74c3c">1. 用户事件触发：</text>
+    <text x="200" y="635" font-family="Arial" font-size="11" fill="#2c3e50">用户在View中进行操作（点击、输入等），View将事件传递给Presenter</text>
+
+    <text x="70" y="655" font-family="Arial" font-size="12" fill="#e74c3c">2. 业务逻辑处理：</text>
+    <text x="200" y="655" font-family="Arial" font-size="11" fill="#2c3e50">Presenter接收事件，调用相应的Interactor执行业务用例</text>
+
+    <text x="70" y="675" font-family="Arial" font-size="12" fill="#e74c3c">3. 数据获取请求：</text>
+    <text x="200" y="675" font-family="Arial" font-size="11" fill="#2c3e50">Interactor通过Repository接口请求数据，Repository协调数据源</text>
+
+    <text x="70" y="695" font-family="Arial" font-size="12" fill="#e74c3c">4. 数据源访问：</text>
+    <text x="200" y="695" font-family="Arial" font-size="11" fill="#2c3e50">Repository根据策略访问本地数据源（SQLite、缓存）或远程数据源（API）</text>
+
+    <text x="70" y="715" font-family="Arial" font-size="12" fill="#27ae60">5. 数据返回：</text>
+    <text x="200" y="715" font-family="Arial" font-size="11" fill="#2c3e50">数据源将结果返回给Repository，Repository进行数据转换和缓存处理</text>
+
+    <text x="70" y="735" font-family="Arial" font-size="12" fill="#27ae60">6. 业务处理：</text>
+    <text x="200" y="735" font-family="Arial" font-size="11" fill="#2c3e50">Repository将处理后的数据返回给Interactor，Interactor应用业务规则</text>
+
+    <text x="70" y="755" font-family="Arial" font-size="12" fill="#27ae60">7. 结果传递：</text>
+    <text x="200" y="755" font-family="Arial" font-size="11" fill="#2c3e50">Interactor将最终结果传递给Presenter，Presenter进行数据格式化</text>
+
+    <text x="70" y="775" font-family="Arial" font-size="12" fill="#27ae60">8. UI更新：</text>
+    <text x="200" y="775" font-family="Arial" font-size="11" fill="#2c3e50">Presenter调用View接口方法更新UI，显示数据或错误信息</text>
+
+    <!-- Threading explanation -->
+    <text x="70" y="810" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">线程管理：</text>
+
+    <text x="70" y="835" font-family="Arial" font-size="12" fill="#ffa000">• 异步执行：</text>
+    <text x="160" y="835" font-family="Arial" font-size="11" fill="#2c3e50">Interactor在后台线程中执行，避免阻塞UI线程</text>
+
+    <text x="70" y="855" font-family="Arial" font-size="12" fill="#ffa000">• 主线程回调：</text>
+    <text x="180" y="855" font-family="Arial" font-size="11" fill="#2c3e50">执行完成后，结果通过主线程回调给Presenter，确保UI更新在主线程进行</text>
+
+    <!-- Key principles -->
+    <text x="70" y="890" font-family="Arial" font-size="14" font-weight="bold" fill="#2c3e50">关键原则：</text>
+
+    <text x="70" y="915" font-family="Arial" font-size="11" fill="#2c3e50">• 单向依赖：高层模块不依赖低层模块，都依赖于抽象接口</text>
+    <text x="500" y="915" font-family="Arial" font-size="11" fill="#2c3e50">• 职责分离：每层只负责自己的职责，通过接口通信</text>
+
+    <text x="70" y="935" font-family="Arial" font-size="11" fill="#2c3e50">• 可测试性：各层独立，便于单元测试和集成测试</text>
+    <text x="500" y="935" font-family="Arial" font-size="11" fill="#2c3e50">• 可维护性：松耦合设计，易于修改和扩展</text>
+  </g>
+</svg>
