@@ -1,0 +1,128 @@
+<svg width="1200" height="800" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800">
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+    </marker>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="800" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="600" y="40" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#2c3e50">MVP Clean Architecture 架构图</text>
+  
+  <!-- UI Layer -->
+  <rect x="50" y="80" width="1100" height="160" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" rx="8"/>
+  <text x="70" y="105" font-family="Arial" font-size="16" font-weight="bold" fill="#1976d2">UI Layer (表现层)</text>
+  
+  <!-- UI Components -->
+  <rect x="80" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="130" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Activities</text>
+  <text x="130" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">MainActivity</text>
+  <text x="130" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">ModelInfoActivity</text>
+  
+  <rect x="200" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="250" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Fragments</text>
+  <text x="250" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterList</text>
+  <text x="250" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterInfo</text>
+  
+  <rect x="320" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="370" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Views</text>
+  <text x="370" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterListView</text>
+  <text x="370" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">ModelInfoView</text>
+  
+  <rect x="440" y="120" width="120" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="500" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Presenters</text>
+  <text x="500" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterListPresenter</text>
+  <text x="500" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterInfoPresenter</text>
+  
+  <rect x="580" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="630" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">ViewModels</text>
+  <text x="630" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterViewModel</text>
+  <text x="630" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterInfoVM</text>
+  
+  <rect x="700" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="750" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Adapters</text>
+  <text x="750" y="160" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">ModelAdapter</text>
+  
+  <rect x="820" y="120" width="100" height="80" fill="#bbdefb" stroke="#1976d2" rx="4"/>
+  <text x="870" y="140" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#0d47a1">Reactive</text>
+  <text x="870" y="155" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">CharacterSelected</text>
+  <text x="870" y="170" text-anchor="middle" font-family="Arial" font-size="9" fill="#1565c0">Observable</text>
+  
+  <!-- Domain Layer -->
+  <rect x="50" y="280" width="1100" height="160" fill="#ffebee" stroke="#d32f2f" stroke-width="2" rx="8"/>
+  <text x="70" y="305" font-family="Arial" font-size="16" font-weight="bold" fill="#d32f2f">Domain Layer (业务逻辑层)</text>
+  
+  <!-- Domain Components -->
+  <rect x="80" y="320" width="150" height="80" fill="#ffcdd2" stroke="#d32f2f" rx="4"/>
+  <text x="155" y="340" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#b71c1c">Interactors</text>
+  <text x="155" y="355" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">GetMarvelCharacters</text>
+  <text x="155" y="370" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">GetCharactersPaginated</text>
+  <text x="155" y="385" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">AbstractInteractor</text>
+  
+  <rect x="250" y="320" width="120" height="80" fill="#ffcdd2" stroke="#d32f2f" rx="4"/>
+  <text x="310" y="340" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#b71c1c">Models</text>
+  <text x="310" y="355" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">MarvelCharacter</text>
+  <text x="310" y="370" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">MarvelCharacterList</text>
+  
+  <rect x="390" y="320" width="150" height="80" fill="#ffcdd2" stroke="#d32f2f" rx="4"/>
+  <text x="465" y="340" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#b71c1c">Repository</text>
+  <text x="465" y="355" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">MarvelRepository</text>
+  <text x="465" y="370" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">ResponseMapper</text>
+  <text x="465" y="385" text-anchor="middle" font-family="Arial" font-size="9" fill="#c62828">API / Mock</text>
+  
+  <!-- Executor Layer -->
+  <rect x="50" y="480" width="400" height="120" fill="#fff3e0" stroke="#f57c00" stroke-width="2" rx="8"/>
+  <text x="70" y="505" font-family="Arial" font-size="16" font-weight="bold" fill="#f57c00">Executor Layer (执行器层)</text>
+  
+  <rect x="80" y="520" width="120" height="60" fill="#ffcc02" stroke="#f57c00" rx="4"/>
+  <text x="140" y="540" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#e65100">Thread Executor</text>
+  <text x="140" y="555" text-anchor="middle" font-family="Arial" font-size="9" fill="#ef6c00">InteractorExecutor</text>
+  <text x="140" y="570" text-anchor="middle" font-family="Arial" font-size="9" fill="#ef6c00">ThreadExecutor</text>
+  
+  <rect x="220" y="520" width="120" height="60" fill="#ffcc02" stroke="#f57c00" rx="4"/>
+  <text x="280" y="540" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#e65100">Main Thread</text>
+  <text x="280" y="555" text-anchor="middle" font-family="Arial" font-size="9" fill="#ef6c00">MainThreadExecutor</text>
+  <text x="280" y="570" text-anchor="middle" font-family="Arial" font-size="9" fill="#ef6c00">MainThreadExecutorImp</text>
+  
+  <!-- App Layer -->
+  <rect x="500" y="480" width="650" height="120" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" rx="8"/>
+  <text x="520" y="505" font-family="Arial" font-size="16" font-weight="bold" fill="#7b1fa2">App Layer (应用层)</text>
+  
+  <rect x="530" y="520" width="100" height="60" fill="#ce93d8" stroke="#7b1fa2" rx="4"/>
+  <text x="580" y="540" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#4a148c">Base Classes</text>
+  <text x="580" y="555" text-anchor="middle" font-family="Arial" font-size="9" fill="#6a1b9a">BaseActivity</text>
+  <text x="580" y="570" text-anchor="middle" font-family="Arial" font-size="9" fill="#6a1b9a">BasePresenter</text>
+  
+  <rect x="650" y="520" width="140" height="60" fill="#ce93d8" stroke="#7b1fa2" rx="4"/>
+  <text x="720" y="540" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#4a148c">Dependency Injection</text>
+  <text x="720" y="560" text-anchor="middle" font-family="Arial" font-size="9" fill="#6a1b9a">Modules &amp; Qualifiers</text>
+  
+  <rect x="810" y="520" width="120" height="60" fill="#ce93d8" stroke="#7b1fa2" rx="4"/>
+  <text x="870" y="540" text-anchor="middle" font-family="Arial" font-size="11" font-weight="bold" fill="#4a148c">Application</text>
+  <text x="870" y="555" text-anchor="middle" font-family="Arial" font-size="9" fill="#6a1b9a">MVPCleanArchitecture</text>
+  <text x="870" y="570" text-anchor="middle" font-family="Arial" font-size="9" fill="#6a1b9a">Application</text>
+  
+  <!-- Arrows -->
+  <line x1="500" y1="200" x2="155" y2="320" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="320" y="250" font-family="Arial" font-size="10" fill="#333">调用业务逻辑</text>
+  
+  <line x1="230" y1="360" x2="390" y2="360" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="300" y="350" font-family="Arial" font-size="10" fill="#333">数据请求</text>
+  
+  <line x1="200" y1="520" x2="155" y2="400" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="160" y="460" font-family="Arial" font-size="10" fill="#333">线程执行</text>
+  
+  <line x1="720" y1="520" x2="500" y2="200" stroke="#f57c00" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <line x1="720" y1="520" x2="155" y2="320" stroke="#f57c00" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  
+  <!-- Legend -->
+  <rect x="50" y="650" width="250" height="80" fill="white" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="60" y="670" font-family="Arial" font-size="12" font-weight="bold" fill="#333">图例</text>
+  <line x1="60" y1="685" x2="90" y2="685" stroke="#333" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="100" y="690" font-family="Arial" font-size="10" fill="#333">数据流向</text>
+  <line x1="60" y1="705" x2="90" y2="705" stroke="#f57c00" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrow)"/>
+  <text x="100" y="710" font-family="Arial" font-size="10" fill="#333">依赖注入</text>
+  
+</svg>
